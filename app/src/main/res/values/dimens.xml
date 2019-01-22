@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="card_layout_height">330dp</dimen>
+    <dimen name="margin">15dp</dimen>
+    <dimen name="profilePicture_layout_width">99dp</dimen>
+    <dimen name="profilePicture_layout_height">138dp</dimen>
+    <dimen name="profilePicture_layout_margin">128dp</dimen>
+    <dimen name="profilePicture_layout_margin_top">32dp</dimen>
+    <dimen name="username_margin">117dp</dimen>
+    <dimen name="username_margin_top">52dp</dimen>
+    <dimen name="github_link_margin">72dp</dimen>
+    <dimen name="github_link_margin_top">13dp</dimen>
+    <dimen name="action_button_margin_start">300dp</dimen>
+    <dimen name="action_button_margin_top">19dp</dimen>
+    <dimen name="action_button_margin_bottom">147dp</dimen>
+</resources>
