@@ -8,17 +8,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.javadevelopersnairobi.javadevelopersnairobi.R;
-
 import static com.example.javadevelopersnairobi.javadevelopersnairobi.adapter.GithubUsersAdapter.EXTRA_IMAGE;
 import static com.example.javadevelopersnairobi.javadevelopersnairobi.adapter.GithubUsersAdapter.EXTRA_LINK;
 import static com.example.javadevelopersnairobi.javadevelopersnairobi.adapter.GithubUsersAdapter.EXTRA_NAME;
 
 public class DetailActivity extends AppCompatActivity {
-
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -64,5 +61,6 @@ public class DetailActivity extends AppCompatActivity {
 
 			}
 		});
+
 	}
 }

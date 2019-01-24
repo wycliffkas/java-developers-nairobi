@@ -19,10 +19,10 @@ import com.example.javadevelopersnairobi.javadevelopersnairobi.view.DetailActivi
 import java.util.List;
 
 public class GithubUsersAdapter extends RecyclerView.Adapter<GithubUsersAdapter.GithubUsersHolder> {
-
 	public static final String EXTRA_NAME = "username";
 	public static final String EXTRA_LINK = "githubLink";
 	public static final String EXTRA_IMAGE = "imageUrl";
+
 
 	private List<GithubUsers> githubUsers;
 	private Context context;
@@ -70,7 +70,6 @@ public class GithubUsersAdapter extends RecyclerView.Adapter<GithubUsersAdapter.
 
 		public GithubUsersHolder(View v) {
 			super(v);
-
 			users_layout = v.findViewById(R.id.users_layout);
 			profile_image =  v.findViewById(R.id.profile_image);
 			username = v.findViewById(R.id.username);

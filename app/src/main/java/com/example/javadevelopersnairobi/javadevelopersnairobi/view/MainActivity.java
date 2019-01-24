@@ -9,8 +9,6 @@ import com.example.javadevelopersnairobi.javadevelopersnairobi.adapter.GithubUse
 import com.example.javadevelopersnairobi.javadevelopersnairobi.R;
 import com.example.javadevelopersnairobi.javadevelopersnairobi.model.GithubUsers;
 import com.example.javadevelopersnairobi.javadevelopersnairobi.presenter.GithubPresenter;
-
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -35,4 +33,5 @@ public class MainActivity extends AppCompatActivity implements DeveloperView {
 	public void developersReady(List<GithubUsers> developers) {
 		recyclerView.setAdapter(new GithubUsersAdapter(developers, this));
 	}
+
 }
