@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="card_layout_height">330dp</dimen>
-    <dimen name="margin">15dp</dimen>
+    <dimen name="developer_detail_margin">15dp</dimen>
     <dimen name="profilePicture_layout_width">99dp</dimen>
     <dimen name="profilePicture_layout_height">138dp</dimen>
     <dimen name="profilePicture_layout_margin">128dp</dimen>
@@ -11,6 +11,24 @@
     <dimen name="github_link_margin">72dp</dimen>
     <dimen name="github_link_margin_top">13dp</dimen>
     <dimen name="action_button_margin_start">300dp</dimen>
-    <dimen name="action_button_margin_top">19dp</dimen>
-    <dimen name="action_button_margin_bottom">147dp</dimen>
+    <dimen name="action_button_margin_bottom">24dp</dimen>
+    <dimen name="action_button_margin_start_left">332dp</dimen>
+    <dimen name="action_button_margin_end_right">38dp</dimen>
+    <dimen name="action_button_margin_top">200dp</dimen>
+    <dimen name="action_button_layout_height">129dp</dimen>
+    <dimen name="text_medium">20sp</dimen>
+    <dimen name="horizontal_bias">0.966</dimen>
+    <dimen name="vertical_bias">0.0</dimen>
+    <dimen name="card_elevation">4dp</dimen>
+    <dimen name="float_button_elevation">6dp</dimen>
+    <dimen name="list_developers_image_width">72dp</dimen>
+    <dimen name="list_developers_image_height">80dp</dimen>
+    <dimen name="list_developers_image_margin_start_left">44dp</dimen>
+    <dimen name="list_developers_image_margin_end_right">279dp</dimen>
+    <dimen name="list_developers_text_margin_start_left">73dp</dimen>
+    <dimen name="list_developers_text_margin_top_bottom">32dp</dimen>
+    <dimen name="list_developers_text_margin_end_right">107dp</dimen>
+    <dimen name="list_developers_card_margin">10dp</dimen>
+
+
 </resources>
