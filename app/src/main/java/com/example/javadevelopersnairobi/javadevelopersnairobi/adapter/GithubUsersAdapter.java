@@ -1,6 +1,7 @@
 package com.example.javadevelopersnairobi.javadevelopersnairobi.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -8,17 +9,20 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.bitmap.CenterCrop;
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.javadevelopersnairobi.javadevelopersnairobi.R;
 import com.example.javadevelopersnairobi.javadevelopersnairobi.model.GithubUsers;
-
+import com.example.javadevelopersnairobi.javadevelopersnairobi.view.DetailActivity;
 import java.util.List;
 
 public class GithubUsersAdapter extends RecyclerView.Adapter<GithubUsersAdapter.GithubUsersHolder> {
+
+	public static final String EXTRA_NAME = "username";
+	public static final String EXTRA_LINK = "githubLink";
+	public static final String EXTRA_IMAGE = "imageUrl";
 
 	private List<GithubUsers> githubUsers;
 	private Context context;
@@ -40,7 +44,6 @@ public class GithubUsersAdapter extends RecyclerView.Adapter<GithubUsersAdapter.
 
 
 		GithubUsers githubUser = githubUsers.get(position);
-		String url = githubUser.getAvatarUrl();
 		holder.username.setText(githubUsers.get(position).getUsername());
 		RequestOptions myOptions = new RequestOptions()
 				.fitCenter()
@@ -67,9 +70,24 @@ public class GithubUsersAdapter extends RecyclerView.Adapter<GithubUsersAdapter.
 
 		public GithubUsersHolder(View v) {
 			super(v);
-			users_layout = (CardView) v.findViewById(R.id.users_layout);
-			profile_image = (ImageView) v.findViewById(R.id.profile_image);
-			username = (TextView) v.findViewById(R.id.username);
+
+			users_layout = v.findViewById(R.id.users_layout);
+			profile_image =  v.findViewById(R.id.profile_image);
+			username = v.findViewById(R.id.username);
+
+			v.setOnClickListener(new View.OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					int position = getAdapterPosition();
+					Intent detailIntent = new Intent(v.getContext(), DetailActivity.class);
+					GithubUsers clickedDeveloper =  githubUsers.get(position);
+
+					detailIntent.putExtra(EXTRA_NAME,clickedDeveloper.getUsername());
+					detailIntent.putExtra(EXTRA_LINK, clickedDeveloper.getHtmlUrl());
+					detailIntent.putExtra(EXTRA_IMAGE, clickedDeveloper.getAvatarUrl());
+					context.startActivity(detailIntent);
+				}
+			});
 		}
 	}
 }
