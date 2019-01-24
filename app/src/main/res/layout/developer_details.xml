@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/margin">
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/cardView"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/card_layout_height"
+            android:layout_marginStart="@dimen/margin"
+            android:layout_marginLeft="@dimen/margin"
+            android:layout_marginEnd="@dimen/margin"
+            android:layout_marginRight="@dimen/margin"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/profilePicture"
+                    android:layout_width="@dimen/profilePicture_layout_width"
+                    android:layout_height="@dimen/profilePicture_layout_height"
+                    android:layout_marginStart="@dimen/profilePicture_layout_margin"
+                    android:layout_marginLeft="@dimen/profilePicture_layout_margin"
+                    android:layout_marginTop="@dimen/profilePicture_layout_margin_top"
+                    android:layout_marginEnd="@dimen/profilePicture_layout_margin"
+                    android:layout_marginRight="@dimen/profilePicture_layout_margin"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/user"
+                    android:contentDescription="@string/picture" />
+
+                <TextView
+                    android:id="@+id/username"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/username_margin"
+                    android:layout_marginLeft="@dimen/username_margin"
+                    android:layout_marginTop="@dimen/username_margin_top"
+                    android:layout_marginEnd="@dimen/username_margin"
+                    android:layout_marginRight="@dimen/username_margin"
+                    android:text="@string/name"
+                    android:textColor="@color/primary"
+                    android:textSize="18sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/profilePicture" />
+
+                <TextView
+                    android:id="@+id/githubLink"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/github_link_margin"
+                    android:layout_marginLeft="@dimen/github_link_margin"
+                    android:layout_marginTop="@dimen/github_link_margin_top"
+                    android:layout_marginEnd="@dimen/github_link_margin"
+                    android:layout_marginRight="@dimen/github_link_margin"
+                    android:text="@string/link"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/username" />
+
+            </android.support.constraint.ConstraintLayout>
+
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/floatingActionButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/action_button_margin_start"
+            android:layout_marginLeft="@dimen/action_button_margin_start"
+            android:layout_marginTop="@dimen/action_button_margin_top"
+            android:layout_marginBottom="@dimen/action_button_margin_bottom"
+            android:src="@drawable/ic_share_white_24dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cardView"
+            app:layout_constraintVertical_bias="1.0" />
+
+    </android.support.constraint.ConstraintLayout>
+
+
+</LinearLayout>
