@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
-
 import com.example.javadevelopersnairobi.javadevelopersnairobi.adapter.GithubUsersAdapter;
 import com.example.javadevelopersnairobi.javadevelopersnairobi.R;
 import com.example.javadevelopersnairobi.javadevelopersnairobi.model.GithubUsers;
