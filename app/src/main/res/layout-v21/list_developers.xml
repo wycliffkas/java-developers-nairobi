@@ -2,11 +2,10 @@
 <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:cardview="http://schemas.android.com/apk/res-auto"
     android:id="@+id/users_layout"
-    android:layout_width="@dimen/list_developers_card_width"
-    android:layout_height="@dimen/list_developers_card_height"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
     android:layout_margin="@dimen/list_developers_card_margin"
-    android:elevation="@dimen/card_elevation"
-    cardview:cardCornerRadius="@dimen/card_radius">
+    android:elevation="@dimen/card_elevation">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -17,21 +16,20 @@
             android:id="@+id/profile_image"
             android:layout_width="match_parent"
             android:layout_height="@dimen/list_developers_image_height"
-            android:scaleType="fitCenter"
             android:contentDescription="@string/picture"
+            android:scaleType="fitXY"
             android:src="@drawable/user"/>
 
         <TextView
             android:id="@+id/username"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="@string/name"
-            android:textSize="@dimen/text_small"
-            android:gravity="center"
+            android:layout_height="@dimen/list_developers_text_height"
             android:background="@color/primary"
-            android:textColor="@color/text_color_list_developers" />
+            android:gravity="center"
+            android:text="@string/name"
+            android:textColor="@color/text_color_list_developers"
+            android:textSize="@dimen/text_small" />
     </LinearLayout>
 
 </android.support.v7.widget.CardView>
-
 

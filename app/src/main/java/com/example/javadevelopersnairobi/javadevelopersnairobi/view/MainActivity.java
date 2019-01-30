@@ -1,7 +1,9 @@
 package com.example.javadevelopersnairobi.javadevelopersnairobi.view;
 
+import android.content.res.Configuration;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.support.design.widget.Snackbar;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -25,15 +27,15 @@ import java.util.List;
 
 import static android.support.v4.widget.SwipeRefreshLayout.OnRefreshListener;
 
-
-
 public class MainActivity extends AppCompatActivity
 		implements DeveloperView, ConnectivityReceiver.ConnectivityReceiverListener {
 
-
+	public final static String LIST_STATE_KEY = "recycler_list_state";
 	private SwipeRefreshLayout swipeRefreshLayout;
 	private GithubPresenter githubPresenter;
 	private ProgressBar progressBar;
+	private GridLayoutManager uLayoutManager;
+	Parcelable listState;
 
 	RecyclerView recyclerView;
 	List<GithubUsers> intialList = new ArrayList<>();
@@ -45,12 +47,17 @@ public class MainActivity extends AppCompatActivity
 		recyclerView = findViewById(R.id.users_recyclerView);
 		progressBar = findViewById(R.id.progressBar);
 
-		recyclerView.setLayoutManager(new GridLayoutManager(this, 3));
-
-		recyclerView.setAdapter(new GithubUsersAdapter(intialList, this));
-
 		githubPresenter = new GithubPresenter();
 		githubPresenter.getAllDevelopers(this);
+
+		//sets rows for the different orientations
+		if(this.getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT){
+			uLayoutManager = new GridLayoutManager(this, 2);
+		} else{
+			uLayoutManager = new GridLayoutManager(this, 3);
+		}
+
+		recyclerView.setLayoutManager(uLayoutManager);
 
 		// Manually checking internet connection
 		checkConnection();
@@ -101,12 +108,11 @@ public class MainActivity extends AppCompatActivity
 
 	}
 
-
 	// Showing the status in Snackbar
 	private void showSnack (boolean isConnected){
 		Snackbar snackbar = Snackbar
-			.make(findViewById(R.id.users_recyclerView),
-			"No internet connection, Please enable it to continue", Snackbar.LENGTH_LONG);
+				.make(findViewById(R.id.users_recyclerView),
+						"No internet connection, Please enable it to continue", Snackbar.LENGTH_LONG);
 		TextView txt = snackbar.getView().findViewById(android.support.design.R.id.snackbar_text);
 		txt.setTextColor(Color.WHITE);
 		snackbar.show();
@@ -119,11 +125,31 @@ public class MainActivity extends AppCompatActivity
 		checkConnection();
 	}
 
+
+	@Override
+	protected void onSaveInstanceState(Bundle state) {
+		super.onSaveInstanceState(state);
+		listState = uLayoutManager.onSaveInstanceState();
+		state.putParcelable(LIST_STATE_KEY, listState);
+	}
+
+	@Override
+	protected void onRestoreInstanceState(Bundle state) {
+		super.onRestoreInstanceState(state);
+		if(state != null){
+			listState =state.getParcelable(LIST_STATE_KEY);
+		}
+	}
+
 	// register connection status listener
 	@Override
 	protected void onResume() {
 		super.onResume();
 		MyApplication.getInstance().setConnectivityListener(this);
+
+		if (listState != null){
+			uLayoutManager.onRestoreInstanceState(listState);
+		}
 	}
 
 	/**
@@ -134,5 +160,6 @@ public class MainActivity extends AppCompatActivity
 	public void onNetworkConnectionChanged(boolean isConnected) {
 		showSnack(isConnected);
 	}
+
 
 }
