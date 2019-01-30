@@ -5,6 +5,7 @@
     android:layout_width="@dimen/list_developers_card_width"
     android:layout_height="@dimen/list_developers_card_height"
     android:layout_margin="@dimen/list_developers_card_margin"
+    android:elevation="@dimen/card_elevation"
     cardview:cardCornerRadius="@dimen/card_radius">
 
     <LinearLayout
