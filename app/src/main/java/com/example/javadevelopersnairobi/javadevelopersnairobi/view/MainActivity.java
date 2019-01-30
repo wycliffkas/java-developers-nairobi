@@ -1,10 +1,10 @@
 package com.example.javadevelopersnairobi.javadevelopersnairobi.view;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-
 import com.example.javadevelopersnairobi.javadevelopersnairobi.adapter.GithubUsersAdapter;
 import com.example.javadevelopersnairobi.javadevelopersnairobi.R;
 import com.example.javadevelopersnairobi.javadevelopersnairobi.model.GithubUsers;
