@@ -24,7 +24,7 @@ public class GithubPresenter {
 	public GithubPresenter(DeveloperView view){
 		this.developerView = view;
 
-		if(this.developerService == null) {
+		if(this.developerView == null) {
 			this.developerService = new DeveloperService();
 		}
 	}
@@ -37,23 +37,24 @@ public class GithubPresenter {
 	public void getAllDevelopers(final MainActivity mainActivity){
 
 		developerService
-				.getAPI()
-				.getDevelopers()
-				.enqueue(new Callback<Data>() {
-					@Override
-					public void onResponse(Call<Data> call, Response<Data> response) {
-						Data data = response.body();
-						if(data != null ){
-							List<GithubUsers> result = data.getResults();
-							mainActivity.developersReady(result);
-						}
+			.getAPI()
+			.getDevelopers()
+			.enqueue(new Callback<Data>() {
+				@Override
+				public void onResponse(Call<Data> call, Response<Data> response) {
+					Data data = response.body();
+					if(data != null ){
+						List<GithubUsers> result = data.getResults();
+						mainActivity.getAllDevelopers(result);
 					}
+				}
 
-					@Override
-					public void onFailure(Call<Data> call, Throwable t) {
-						Log.e(TAG, t.toString());
-					}
-				});
+				@Override
+				public void onFailure(Call<Data> call, Throwable t) {
+					Log.e(TAG, t.toString());
+				}
+			});
 
 	}
+
 }

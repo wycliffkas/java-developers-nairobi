@@ -9,13 +9,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.resource.bitmap.CenterCrop;
-import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
-import com.bumptech.glide.request.RequestOptions;
 import com.example.javadevelopersnairobi.javadevelopersnairobi.R;
 import com.example.javadevelopersnairobi.javadevelopersnairobi.model.GithubUsers;
 import com.example.javadevelopersnairobi.javadevelopersnairobi.view.DetailActivity;
+
 import java.util.List;
 
 public class GithubUsersAdapter extends RecyclerView.Adapter<GithubUsersAdapter.GithubUsersHolder> {
@@ -29,7 +28,6 @@ public class GithubUsersAdapter extends RecyclerView.Adapter<GithubUsersAdapter.
 
 	public GithubUsersAdapter(List<GithubUsers> githubUsers, Context context) {
 		this.githubUsers = githubUsers;
-
 		this.context = context;
 	}
 
@@ -45,15 +43,9 @@ public class GithubUsersAdapter extends RecyclerView.Adapter<GithubUsersAdapter.
 
 		GithubUsers githubUser = githubUsers.get(position);
 		holder.username.setText(githubUsers.get(position).getUsername());
-		RequestOptions myOptions = new RequestOptions()
-				.fitCenter()
-				.override(100, 100)
-				.transforms(new CenterCrop(), new RoundedCorners(20));
 		Glide.with(context)
 				.load(githubUser.getAvatarUrl())
-				.apply(myOptions)
 				.into(holder.profile_image);
-
 	}
 
 	@Override
