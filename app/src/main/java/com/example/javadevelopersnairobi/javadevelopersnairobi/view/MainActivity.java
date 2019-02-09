@@ -108,6 +108,7 @@ public class MainActivity extends AppCompatActivity
 
 	}
 
+
 	// Showing the status in Snackbar
 	private void showSnack (boolean isConnected){
 		Snackbar snackbar = Snackbar
