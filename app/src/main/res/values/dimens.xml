@@ -2,8 +2,8 @@
 <resources>
     <dimen name="card_layout_height">330dp</dimen>
     <dimen name="developer_detail_margin">15dp</dimen>
-    <dimen name="profilePicture_layout_width">99dp</dimen>
-    <dimen name="profilePicture_layout_height">138dp</dimen>
+    <dimen name="profilePicture_layout_width">240dp</dimen>
+    <dimen name="profilePicture_layout_height">168dp</dimen>
     <dimen name="profilePicture_layout_margin">128dp</dimen>
     <dimen name="profilePicture_layout_margin_top">32dp</dimen>
     <dimen name="username_margin">117dp</dimen>
