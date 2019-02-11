@@ -68,14 +68,13 @@ public class MainActivityTest {
 	@Test
 	public void ScreenOrientation(){
 		mActivity.getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
-		onView(withId(R.id.users_recyclerView)).check(matches(isDisplayed()));
+		onView(withId(R.id.users_recyclerView)).perform(RecyclerViewActions.scrollToPosition(11));
 		try {
 			Thread.sleep(5000);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
 		mActivity.getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-		onView(withId(R.id.users_recyclerView)).check(matches(isDisplayed()));
 	}
 
 
