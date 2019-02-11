@@ -39,5 +39,12 @@ public class DetailActivityTest {
 
 	}
 
+	@Test
+	public void testFloatingActionButton_shouldBeDisplayed(){
+		onView(withId(R.id.shareButton)).check(matches(isDisplayed()));
+	}
+
+
+
 
 }
