@@ -29,4 +29,3 @@ cd java-developers-nairobi
 
 Then open your project in Android Studio and click Run.
 
-
