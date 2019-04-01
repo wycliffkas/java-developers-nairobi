@@ -37,13 +37,13 @@ public class MainActivityTest {
 	public void testOnSavedInstanceState() throws Throwable {
 		mActivity.launchActivity(new Intent());
 
-		final Activity act = mActivity.getActivity();
+		final Activity activity = mActivity.getActivity();
 
 		mActivity.runOnUiThread(new Runnable() {
 			@Override
 			public void run() {
-				act.finish();
-				act.recreate();
+				activity.finish();
+				activity.recreate();
 			}
 		});
 	}
