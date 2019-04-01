@@ -5,6 +5,7 @@ import android.arch.persistence.room.PrimaryKey;
 
 import java.sql.Blob;
 
+
 @Entity(tableName = "developer")
 public class Developer {
     @PrimaryKey(autoGenerate = true)
