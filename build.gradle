@@ -40,6 +40,8 @@ ext {
     orchestrator = '1.0.2'
     testRule = '1.0.2'
     robolectric = '4.1'
+    roomVersion = '1.1.1'
+    archLifecycleVersion = '1.1.1'
 }
 
 task clean(type: Delete) {
