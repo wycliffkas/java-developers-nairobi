@@ -5,6 +5,7 @@ import android.arch.persistence.room.PrimaryKey;
 
 import java.sql.Blob;
 
+
 @Entity(tableName = "developer")
 public class Developer {
     @PrimaryKey(autoGenerate = true)
@@ -14,9 +15,9 @@ public class Developer {
 
     private String github;
 
-    private Blob image;
+    private String image;
 
-    public Developer(int id, String username, String github, Blob image) {
+    public Developer(int id, String username, String github, String image) {
         this.id = id;
         this.username = username;
         this.github = github;
@@ -35,7 +36,7 @@ public class Developer {
         return github;
     }
 
-    public Blob getImage() {
+    public String getImage() {
         return image;
     }
 }

@@ -80,6 +80,8 @@ dependencies {
     androidTestImplementation "android.arch.persistence.room:testing:$rootProject.roomVersion"
     implementation "android.arch.lifecycle:extensions:$rootProject.archLifecycleVersion"
     annotationProcessor "android.arch.lifecycle:compiler:$rootProject.archLifecycleVersion"
+    implementation "android.arch.lifecycle:extensions:$rootProject.archLifecycleVersion"
+    androidTestImplementation "android.arch.persistence.room:testing:$rootProject.roomVersion"
     annotationProcessor "com.github.bumptech.glide:compiler:$rootProject.glideVersion"
     annotationProcessor "android.arch.lifecycle:compiler:$rootProject.archLifecycleVersion"
     testImplementation "junit:junit:$rootProject.jUnitVersion"
