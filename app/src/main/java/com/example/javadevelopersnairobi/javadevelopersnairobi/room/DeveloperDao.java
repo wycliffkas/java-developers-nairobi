@@ -13,7 +13,7 @@ import static android.icu.text.MessagePattern.ArgType.SELECT;
 public interface DeveloperDao {
 
     @Insert
-    void bulkInsert(Developer... developer);
+    void insert(Developer... developer);
 
     @Query("SELECT * from developer")
     LiveData<List<Developer>> getAllDevelopers();
