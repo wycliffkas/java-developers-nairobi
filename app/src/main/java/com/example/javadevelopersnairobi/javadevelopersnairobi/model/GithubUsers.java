@@ -1,13 +1,20 @@
 package com.example.javadevelopersnairobi.javadevelopersnairobi.model;
 
+import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.Ignore;
+import android.arch.persistence.room.OnConflictStrategy;
+import android.arch.persistence.room.PrimaryKey;
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.support.annotation.NonNull;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+@Entity(tableName = "developers")
 public class GithubUsers implements Parcelable {
 
+	@Ignore
 	public static final Parcelable.Creator<GithubUsers> CREATOR = new Creator<GithubUsers>() {
 
 
@@ -23,6 +30,9 @@ public class GithubUsers implements Parcelable {
 		}
 
 	};
+
+	@PrimaryKey()
+	@NonNull
 	@SerializedName("login")
 	@Expose
 	private String username;
@@ -38,6 +48,7 @@ public class GithubUsers implements Parcelable {
 	private String htmlUrl;
 
 
+	@Ignore
 	public GithubUsers(Parcel in) {
 		this.username = ((String) in.readValue((String.class.getClassLoader())));
 
@@ -46,11 +57,12 @@ public class GithubUsers implements Parcelable {
 		this.htmlUrl = ((String) in.readValue((String.class.getClassLoader())));
 	}
 
-	public GithubUsers(String userName, String userRepo, String userAvatar) {
-		this.username = userName;
-		this.htmlUrl = userRepo;
-		this.avatarUrl = userAvatar;
+	public GithubUsers(String username, String htmlUrl, String avatarUrl) {
+		this.username = username;
+		this.htmlUrl = htmlUrl;
+		this.avatarUrl = avatarUrl;
 	}
+
 	public String getUsername() {
 		return username;
 	}
@@ -74,6 +86,7 @@ public class GithubUsers implements Parcelable {
 		this.htmlUrl = htmlUrl;
 	}
 
+	@Ignore
 	public void writeToParcel(Parcel dest, int flags) {
 		dest.writeValue(username);
 		dest.writeValue(avatarUrl);
@@ -81,6 +94,7 @@ public class GithubUsers implements Parcelable {
 
 	}
 
+	@Ignore
 	public int describeContents() {
 		return 0;
 	}

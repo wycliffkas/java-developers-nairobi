@@ -7,30 +7,30 @@ A mobile App that allows users to see the list of Java developers in Nairobi.
 ## Mockups
 Below are the links to Wireframes.
 
-[List Nairobi Java Developers](https://github.com/wycliffkas/java-developers-nairobi/blob/develop/mockups/mockup%201.png)
+<p float="left">
+<img src="https://github.com/wycliffkas/java-developers-nairobi/blob/develop/mockups/mockup%201.png" width="350" height="400" />
+<img src="https://github.com/wycliffkas/java-developers-nairobi/blob/develop/mockups/mockup%202.png" width="350" height="400" />
+</p>
 
-[Developer Details](https://github.com/wycliffkas/java-developers-nairobi/blob/develop/mockups/mockup%202.png)
-
-I used [justinmind](https://www.justinmind.com/) to create the mockups.
-
-## Technologies Used
-- Android
+### Technologies Used
+- Android/Java
 - Xml
-- Java
+- Retrofit
+- Room
 
-## Application Features.
+### Application Features.
 - List Java Developers from Nairobi.
 - Display details of a single developer.
 - Share developer's profile.
 - Open developer's github profile in the browser 
 
-## Prerequisites.
+### Prerequisites.
 
 You need the following :
 - Android studio.
 - Linux, macOS or Windows.
 
-## Getting Started
+### Getting Started
 
 - Clone this repository to your local machine, using the command below.
 
