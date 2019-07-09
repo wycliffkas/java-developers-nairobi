@@ -4,12 +4,9 @@
 ## Coverge level-up project for Android
 A mobile App that allows users to see the list of Java developers in Nairobi.
 
-## Mockups
-Below are the links to Wireframes.
-
 <p float="left">
-<img src="https://github.com/wycliffkas/java-developers-nairobi/blob/develop/mockups/mockup%201.png" width="350" height="400" />
-<img src="https://github.com/wycliffkas/java-developers-nairobi/blob/develop/mockups/mockup%202.png" width="350" height="400" />
+<img src="https://github.com/wycliffkas/java-developers-nairobi/blob/develop/mockups/mockup%201.png" width="250" height="400" />
+<img src="https://github.com/wycliffkas/java-developers-nairobi/blob/develop/mockups/mockup%202.png" width="250" height="400" />
 </p>
 
 ### Technologies Used
