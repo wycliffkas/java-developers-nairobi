@@ -24,6 +24,7 @@ import com.example.javadevelopersnairobi.javadevelopersnairobi.util.MyApplicatio
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ExecutionException;
 
 import static android.support.v4.widget.SwipeRefreshLayout.OnRefreshListener;
 
@@ -36,6 +37,9 @@ public class MainActivity extends AppCompatActivity
 	private ProgressBar progressBar;
 	private GridLayoutManager uLayoutManager;
 	Parcelable listState;
+	GithubUsersAdapter githubUsersAdapter;
+	List<GithubUsers> developers = new ArrayList<>();
+
 
 	RecyclerView recyclerView;
 	List<GithubUsers> intialList = new ArrayList<>();
@@ -47,8 +51,8 @@ public class MainActivity extends AppCompatActivity
 		recyclerView = findViewById(R.id.users_recyclerView);
 		progressBar = findViewById(R.id.progressBar);
 
-		githubPresenter = new GithubPresenter();
-		githubPresenter.getAllDevelopers(this);
+		githubPresenter = new GithubPresenter(getApplication());
+		githubUsersAdapter = new GithubUsersAdapter(developers, this);
 
 		//sets rows for the different orientations
 		if(this.getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT){
@@ -59,8 +63,7 @@ public class MainActivity extends AppCompatActivity
 
 		recyclerView.setLayoutManager(uLayoutManager);
 
-		// Manually checking internet connection
-		checkConnection();
+
 
 		swipeRefreshLayout = findViewById(R.id.swipe_refresh_layout);
 		swipeRefreshLayout.setColorSchemeColors(Color.BLUE, Color.YELLOW, Color.RED);
@@ -70,7 +73,8 @@ public class MainActivity extends AppCompatActivity
 				githubPresenter.getAllDevelopers(MainActivity.this);
 			}
 		});
-
+        // Manually checking internet connection
+        checkConnection();
 	}
 
 	@Override
@@ -84,7 +88,7 @@ public class MainActivity extends AppCompatActivity
 		switch (item.getItemId()){
 			case R.id.menu_refresh:
 				swipeRefreshLayout.setRefreshing(true);
-				githubPresenter.getAllDevelopers(MainActivity.this);
+				githubPresenter.getAllDevelopers(this);
 				return true;
 		}
 
@@ -94,16 +98,27 @@ public class MainActivity extends AppCompatActivity
 	@Override
 	public void getAllDevelopers(List<GithubUsers> developers){
 
-		recyclerView.setAdapter(new GithubUsersAdapter(developers, this));
+		recyclerView.setAdapter(githubUsersAdapter);
 		swipeRefreshLayout.setRefreshing(false);
 		progressBar.setVisibility(View.GONE);
+		this.developers.addAll(developers);
+		githubUsersAdapter.notifyDataSetChanged();
 	}
 
 	// Method to check connection status
 	private void checkConnection(){
 		boolean isConnected = ConnectivityReceiver.isConnected();
 		if (!isConnected){
+			try {
+				getAllDevelopers(githubPresenter.getOfflineDevelopers(this));
+			} catch (ExecutionException e) {
+				e.printStackTrace();
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
 			showSnack(isConnected);
+		} else {
+			githubPresenter.getAllDevelopers(this);
 		}
 
 	}

@@ -5,8 +5,10 @@ import android.arch.persistence.room.Room;
 import android.arch.persistence.room.RoomDatabase;
 import android.content.Context;
 
+import com.example.javadevelopersnairobi.javadevelopersnairobi.model.GithubUsers;
 
-@Database(entities = {Developer.class}, version = 1)
+
+@Database(entities = {GithubUsers.class}, version = 1, exportSchema = false)
 public abstract class DeveloperDatabase extends RoomDatabase {
 
     public static DeveloperDatabase instance;
